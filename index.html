@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sergio Maceda - Portfolio Web</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root{
+      --bg-dark:#08111c;
+      --bg-dark-2:#0d1824;
+      --text:#111111;
+      --text-soft:#5d5d5d;
+      --white:#ffffff;
+      --border:#ece7df;
+      --card:#ffffff;
+      --accent:#ef4d5a;
+      --accent-2:#d93d4a;
+      --shadow:0 12px 40px rgba(0,0,0,.08);
+      --radius-xl:22px;
+      --radius-lg:18px;
+      --radius-md:14px;
+      --container:1240px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(220,165,95,.12), transparent 20%),
+        radial-gradient(circle at top right, rgba(220,165,95,.12), transparent 20%),
+        #f9f6f2;
+      line-height:1.6;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero{
+      background:
+        radial-gradient(circle at 85% 10%, rgba(210,119,89,.35), transparent 24%),
+        radial-gradient(circle at 15% 10%, rgba(20,34,52,.5), transparent 25%),
+        linear-gradient(180deg, #07111b 0%, #09131d 100%);
+      color:var(--white);
+      padding:72px 0 110px;
+    }
+
+    .hero-copy {
+        padding-top: 6px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:56px;
+      align-items:stretch;
+    }
+
+    .eyebrow{
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(239,77,90,0.08);
+      border: 1px solid rgba(239,77,90,0.16);
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1{
+      font-family:'Playfair Display', serif;
+      font-size:4.2rem;
+      line-height:.95;
+      font-weight:600;
+      margin-bottom:18px;
+      letter-spacing:-0.03em;
+    }
+
+    .hero h2{
+      font-family:'Playfair Display', serif;
+      font-size:2.2rem;
+      line-height:1.08;
+      color:var(--accent-2);
+      font-weight:500;
+      margin-bottom:28px;
+    }
+
+    .hero p{
+      max-width:720px;
+      font-size:17px;
+      color:rgba(255,255,255,.92);
+      margin-bottom:14px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:200px;
+      height:52px;
+      padding:0 29px;
+      border-radius:6px;
+      font-weight:500;
+      font-size:16px;
+      transition:.25s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(219, 10, 90, 0.25);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.03);
+    }
+
+    .btn-outline{
+      border:2px solid var(--accent);
+      color:#fff;
+      background:transparent;
+      
+    }
+
+    .btn-outline:hover{
+      background:rgba(255,255,255,.04);
+      transform:translateY(-2px);
+    }
+
+    .hero-image{
+      position:relative;
+      border-radius:24px;
+      overflow:hidden;
+      min-height:540px;
+      box-shadow:0 30px 60px rgba(0,0,0,.28);
+      background:#1c1c1c;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+    .section{
+      padding:30px 0 0;
+    }
+
+    .section-heading{
+      margin-bottom:28px;
+    }
+
+    .section-heading .eyebrow{
+      color:var(--accent-2);
+      margin-bottom:25px;
+    }
+
+    .section-title{
+      font-family:'Playfair Display', serif;
+      font-size:2.3rem;
+      line-height:1.06;
+      font-weight:600;
+      color:#171717;
+      margin-bottom:25px;
+    }
+
+    .title-line{
+      width:62px;
+      height:3px;
+      background:var(--accent);
+      border-radius:999px;
+    }
+
+    /* =========================
+       PROJECTS GRID
+    ========================= */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:32px;
+      margin-top:55px;
+    }
+
+    .project-card{
+      background:var(--card);
+      border:1px solid #efe8df;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction: column;
+      min-height:430px;
+    }
+
+    .project-thumb{
+      position:relative;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      background:#f7f3ee;
+      overflow: hidden;
+      flex-shrink:0;
+    }
+
+    .project-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position: top center;
+      display: block;
+    }
+
+    .project-content{
+      padding:34px 28px 28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      flex: 1;
+    }
+
+    .project-tag{
+      color:var(--accent);
+      text-transform:uppercase;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.04em;
+      margin-bottom:12px;
+    }
+
+    .project-title{
+      font-family:'Playfair Display', serif;
+      font-size:24px;
+      line-height:1.18;
+      font-weight:600;
+      margin-bottom:18px;
+      color:#171717;
+    }
+
+    .project-text{
+      color:#444;
+      font-size:16px;
+      line-height:1.85;
+      margin-bottom:24px;
+    }
+
+    .project-link{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:fit-content;
+    min-height:50px;
+    padding:0 20px;
+    border-radius: 10px;
+    background:linear-gradient(180deg, #ff6670 0%, #ff4f5f 100%);
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    line-height:1;
+    box-shadow:0 12px 28px rgba(255,79,95,.22);
+    transition:all .25s ease;
+    }
+
+    .project-link:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.04);
+    }
+
+    .project-link:hover{
+      opacity:.85;
+    }
+
+    /* =========================
+       INFO CARDS (SERVICIOS / CONTACTO)
+    ========================= */
+    .info-block{
+      background:#fff;
+      border:1px solid #efe8df;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      margin-top:26px;
+      overflow:hidden;
+    }
+
+    /* ===== SERVICIOS ===== */
+
+    .info-grid{
+    display:grid;
+    grid-template-columns: 1.2fr repeat(4, 1fr);
+    align-items:stretch;
+    }
+
+    .info-col{
+    padding:34px 28px;
+    min-height:178px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding-top: 44px;
+    position:relative;
+    }
+    
+    
+    .info-col + .info-col{
+    border-left:1px solid #efe8df;
+    }
+
+    .info-title{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    line-height:1.1;
+    margin-bottom:14px;
+    color:#181818;
+    }
+
+    .info-line{
+    width:56px;
+    height:3px;
+    background:var(--accent);
+    border-radius:999px;
+    margin-bottom:12px;
+    }
+
+    /* NUEVO: bloque del icono */
+    .feature-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    color:#ff5a63;
+    margin-bottom:18px;
+    flex-shrink:0;
+    }
+
+    /* NUEVO: tamaño real del SVG */
+    .feature-icon svg{
+    width:34px;
+    height:34px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    }
+
+    /* NUEVO: texto mejor alineado */
+    .feature-text{
+    font-size:16px;
+    line-height:1.75;
+    color:#1d1d1d;
+    font-weight:500;
+    max-width:220px;
+    margin:0;
+    }
+
+    /* =========================
+    CONTACTO
+    ========================= */
+
+    .contact-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    align-items:stretch;
+    }
+
+    .contact-item{
+    padding: 52px 40px 28px;
+    min-height:178px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    position:relative;
+    }
+
+    .contact-item + .contact-item{
+    border-left:1px solid #efe8df;
+    }
+
+    .contact-item--intro{
+        padding: 34px 28px;
+    justify-content:center;
+    }
+
+    .contact-top{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    margin-bottom:18px;
+    }
+
+    .contact-copy{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    }
+
+    .contact-icon{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ff5a63;
+    flex-shrink:0;
+    margin-top:2px;
+    }
+
+    .contact-icon svg{
+    width:28px;
+    height:28px;
+    stroke:currentColor;
+    stroke-width:1.9;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    }
+
+    .contact-label{
+    font-weight:700;
+    font-size:18px;
+    line-height:1.2;
+    color:#202020;
+    margin:0;
+    }
+
+    .contact-value{
+    color:#303030;
+    font-size:16px;
+    line-height:1.6;
+    margin:0;
+    }
+
+    .contact-link{
+    margin-top:auto;
+    color:#ff5a63;
+    font-weight:600;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    }
+
+    .contact-link:hover{
+    opacity:.85;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer{
+      margin-top:40px;
+      background:linear-gradient(180deg, #07111b 0%, #09131d 100%);
+      color:rgba(255,255,255,.88);
+      padding:22px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      font-size:15px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width: 1200px){
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-image{
+        min-height:420px;
+      }
+
+      .projects-grid{
+        grid-template-columns:1fr;
+      }
+
+      .project-card{
+        grid-template-columns:1fr;
+      }
+
+      .project-thumb{
+        min-height:340px;
+      }
+
+      .info-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .info-col:first-child{
+        grid-column:1 / -1;
+        border-bottom:1px solid #efe8df;
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .contact-item:first-child{
+        grid-column:1 / -1;
+        border-bottom:1px solid #efe8df;
+      }
+    }
+
+    @media (max-width: 768px){
+      .container{
+        width:min(100% - 28px, var(--container));
+      }
+
+      .hero{
+        padding:48px 0 42px;
+      }
+
+      .hero h1{
+        font-size:54px;
+      }
+
+      .hero h2{
+        font-size:30px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-image{
+        min-height:320px;
+      }
+
+      .section{
+        padding-top:40px;
+      }
+
+      .section-title{
+        font-size:42px;
+      }
+
+      .project-thumb{
+        min-height:260px;
+      }
+
+      .project-content{
+        padding:24px 22px 24px;
+      }
+
+      .project-title{
+        font-size:28px;
+      }
+
+      .info-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .info-col + .info-col,
+      .contact-item + .contact-item{
+        border-left:none;
+        border-top:1px solid #efe8df;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    .contact-icon i{
+        font-size:30px;
+        line-height:1;
+        color:#ff5a63;
+    }
+
+    /* =========================
+       Availability Badge
+    ========================= */
+
+    .availability-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    min-height:42px;
+    padding:0 16px;
+    margin-bottom:16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:#f5f5f5;
+    font-size:14px;
+    font-weight:600;
+    }
+
+    .availability-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#4ade80;
+    position:relative;
+    flex-shrink:0;
+    box-shadow:0 0 0 0 rgba(74, 222, 128, .7);
+    animation:pulseAvailability 1.8s infinite;
+    }
+
+    .availability-dot::after{
+    content:"";
+    position:absolute;
+    inset:-5px;
+    border-radius:50%;
+    border:1px solid rgba(74, 222, 128, .35);
+    }
+
+    @keyframes pulseAvailability{
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(74, 222, 128, .55);
+    }
+    70%{
+        transform:scale(1.08);
+        box-shadow:0 0 0 12px rgba(74, 222, 128, 0);
+    }
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(74, 222, 128, 0);
+    }
+    }
+
+    /* =========================
+       LOGOTIPO
+    ========================= */
+
+    .hero-brand{
+        position: relative;
+        top:-34px;
+        margin-bottom:-12px;
+    }
+
+    .hero-brand img{
+        height:auto;      /* prueba entre 36 y 48 */
+        width:48px;
+        display:block;
+    }
+
+    /* =========================
+   MINI PRUEBA SOCIAL
+    ========================= */
+
+    .trust-strip-wrap{
+    position:relative;
+    margin-top:-36px;   /* la sube un poco sobre la transición */
+    z-index:5;
+    }
+
+    .trust-strip{
+    max-width:700px;
+    margin:0 auto;
+    min-height:78px;
+    padding:20px 24px;
+    border-radius:16px;
+    background:#fffdfa;
+    border:1px solid #efe8df;
+    box-shadow:0 12px 34px rgba(20, 26, 35, .07);
+    display:flex;
+    align-items:center;
+    gap:18px;
+    }
+
+    .trust-icon{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    background:#fff3f1;
+    color:#ff5a63;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    }
+
+    .trust-icon i{
+    font-size:21px;
+    line-height:1;
+    }
+
+    .trust-text{
+    margin:0;
+    font-size:16px;
+    line-height:1.60;
+    color:#4a4a4a;
+    font-weight:500;
+    }
+
+    /* =========================
+    CTA FINAL
+    ========================= */
+
+    .final-cta{
+    padding:40px 0 10px;
+    }
+
+    .final-cta-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    padding:58px 56px;
+    background:
+        radial-gradient(circle at top right, rgba(255,90,99,.16), transparent 28%),
+        linear-gradient(180deg, #0f1723 0%, #0c141f 100%);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 24px 60px rgba(8, 12, 20, .22);
+    text-align:center;
+    }
+
+    .final-cta-eyebrow{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-height:40px;
+        padding:0 16px;
+        border-radius:999px;
+        background:rgba(255, 90, 99, .08);
+        border:1px solid rgba(255, 90, 99, .18);
+        color:#ff5a63;
+        font-size:13px;
+        font-weight:700;
+        letter-spacing:.08em;
+        margin-bottom:22px;
+        }
+
+    .final-cta-title{
+    max-width:760px;
+    margin:0 auto 18px;
+    font-family:'Playfair Display', serif;
+    font-size:48px;
+    line-height:1.12;
+    color:#fff;
+    }
+
+    .final-cta-text{
+    max-width:790px;
+    margin:0 auto;
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(255,255,255,.82);
+    }
+
+    .final-cta-actions{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:40px;
+    }
+
+    .hero-image{
+    display: flex;
+    justify-content: flex-end;
+    }
+
+    .hero-media{
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    display: inline-block;
+    line-height: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    }
+
+    .hero-photo{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 28px;
+    }
+
+    .hero-social{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+    display: flex;
+    gap: 12px;
+    }
+
+    .hero-social-link{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    background: rgba(31, 41, 55, 0.78);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 10px 28px rgba(0,0,0,.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform .25s ease, background .25s ease;
+    }
+
+    .hero-social-link:hover{
+    transform: translateY(-2px);
+    background: #ef4859;
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-copy">
+
+        <div class="hero-brand">
+            <img src="https://raw.githubusercontent.com/gitserg85/sergiomaceda-portfolio/main/assets/images/brand/logo-sergio-maceda-symbol.svg" alt="Sergio Maceda Studio">
+        </div>
+
+        <div class="availability-badge">
+            <span class="availability-dot"></span>
+            Disponible para nuevos proyectos
+        </div><br>
+
+          <span class="eyebrow">PORTFOLIO WEB</span>
+
+          <h1>Sergio Maceda</h1>
+
+          <h2>Diseño &amp; Desarrollo Web</h2>
+
+          <p>
+            Diseño y desarrollo páginas web en WordPress / Elementor para
+            profesionales, formaciones y negocios que necesitan comunicar
+            mejor su valor online.
+          </p>
+
+          <p>
+            Aquí comparto algunos proyectos web en los que he trabajado,
+            enfocados en estructura, claridad visual, presentación de servicios
+            y experiencia de usuario.
+          </p>
+
+          <div class="hero-actions">
+              <a href="https://wa.me/51920547973?text=Hola%20Sergio%2C%20quiero%20crear%20mi%20sitio%20web.%0A%0AMi%20nombre%20es%3A%0AMi%20negocio%20%2F%20proyecto%20es%3A%0A" target="_blank" rel="noopener" class="btn btn-primary">QUIERO MI SITIO WEB</a>
+              
+              <a href="https://www.instagram.com/sergiomaceda.wd/" class="btn btn-outline" target="_blank">Visita mi Instagram -></a>
+          </div>
+          
+        </div>
+
+        <div class="hero-image">
+            <div class="hero-media">
+                <div class="hero-social">
+                <a href="https://www.instagram.com/sergiomaceda.wd/" class="hero-social-link" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a href="https://wa.me/51920547973?text=Hola%20Sergio%2C%20quiero%20crear%20mi%20sitio%20web.%0A%0AMi%20nombre%20es%3A%0AMi%20negocio%20%2F%20proyecto%20es%3A%0A" class="hero-social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+                </div>
+
+                <img
+                src="https://raw.githubusercontent.com/gitserg85/sergiomaceda-portfolio/main/assets/images/hero/sergio-maceda-hero.jpg"
+                alt="Sergio Maceda en Sevilla"
+                class="hero-photo"
+                >
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <section class="trust-strip-wrap">
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-icon">
+        <i class="bi bi-patch-check"></i>
+      </div>
+
+      <p class="trust-text">
+        He trabajado en webs para centros terapéuticos, formaciones, profesionales y proyectos educativos.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- PROYECTOS -->
+  <section class="section" id="proyectos">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="eyebrow">PORTAFOLIO</span>
+        <h2 class="section-title">Proyectos seleccionados</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROYECTO 1 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <!-- CAMBIA ESTA IMAGEN -->
+            <a href="https://formaciongestalt.net/" target="_blank" class=""><img src="https://raw.githubusercontent.com/gitserg85/sergiomaceda-portfolio/main/assets/images/projects/proyecto-formacion-gestalt.jpg" alt="Centro Peruano de Terapia Gestalt">
+            </a>
+            
+          </div>
+
+          <div class="project-content">
+            <div class="project-tag">UX · Diseño · Wordpress</div>
+            <h3 class="project-title">1. Centro Peruano de Terapia Gestalt</h3>
+            <p class="project-text">
+              Diseñé y desarrollé la web completa en WordPress: estructura UX/UI, arquitectura del contenido, diagramación de secciones, diseño visual y desarrollo general del sitio.
+            </p>
+            <a href="https://formaciongestalt.net/" target="_blank" class="project-link">Visitar sitio →</a>
+          </div>
+        </article>
+
+        <!-- PROYECTO 2 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <!-- CAMBIA ESTA IMAGEN -->
+            <a href="http://transgeneracional.pe/" target="_blank" ><img src="https://raw.githubusercontent.com/gitserg85/sergiomaceda-portfolio/main/assets/images/projects/proyecto-transgeneracional.jpg" alt="Instituto Transgeneracional del Perú">
+            </a>
+            
+          </div>
+
+          <div class="project-content">
+            <div class="project-tag">UX · Diseño · Wordpress</div>
+            <h3 class="project-title">2. Instituto Transgeneracional del Perú</h3>
+            <p class="project-text">
+              Desarrollé la estructura y maquetación de las páginas del sitio,
+              organizando el contenido, las secciones, los bloques visuales y
+              la presentación general de la información en WordPress.
+            </p>
+            <a href="http://transgeneracional.pe/" target="_blank" class="project-link">Visitar sitio →</a>
+          </div>
+        </article>
+
+        <!-- PROYECTO 3 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <!-- CAMBIA ESTA IMAGEN -->
+            <a href="https://www.behance.net/gallery/167093957/Landing-Page-Semana-OME" target="_blank"><img src="https://raw.githubusercontent.com/gitserg85/sergiomaceda-portfolio/main/assets/images/projects/proyecto-ome.jpg" alt="Landing Page - Semana de Oratoria Empresarial">
+            </a>
+            
+        </div>
+
+          <div class="project-content">
+            <div class="project-tag">UX · Diseño · Wordpress</div>
+            <h3 class="project-title">3. Landing Page – Semana de Oratoria Empresarial</h3>
+            <p class="project-text">
+              Diseñé la landing page desde cero y luego la desarrollé en Elementor,
+              trabajando la estructura visual, la jerarquía de secciones y la
+              presentación del evento.
+            </p>
+            <a href="https://www.behance.net/gallery/167093957/Landing-Page-Semana-OME" target="_blank" class="project-link">Ver proyecto en Behance →</a>
+          </div>
+        </article>
+
+        <!-- PROYECTO 4 -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <!-- CAMBIA ESTA IMAGEN -->
+            <a href="https://www.behance.net/gallery/167566447/Formacion-Psicoterapia-Junguiana" target="_blank"><img src="https://raw.githubusercontent.com/gitserg85/sergiomaceda-portfolio/main/assets/images/projects/proyecto-formacion-junguiana.jpg" alt="Formación Virtual en Psicoterapia de Orientación Junguiana">
+            </a>
+            
+          </div>
+
+          <div class="project-content">
+            <div class="project-tag">WORDPRESS / DISEÑO</div>
+            <h3 class="project-title">4. Formación Virtual en Psicoterapia de Orientación Junguiana</h3>
+            <p class="project-text">
+              Realicé toda la estructura, diseño, diagramación e ilustración de
+              gráficas y fondos, creando una experiencia visual clara, profunda
+              y coherente con la temática de la formación.
+            </p>
+            <a href="https://www.behance.net/gallery/167566447/Formacion-Psicoterapia-Junguiana" target="_blank" class="project-link">Ver proyecto en Behance →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+  <div class="container">
+    <div class="info-block">
+      <div class="info-grid">
+
+        <div class="info-col">
+          <h2 class="info-title">Servicios</h2>
+          <div class="info-line"></div>
+        </div>
+
+        <!-- Servicio 1 -->
+        <div class="info-col ">
+          <div class="feature-icon">
+            <!-- Monitor / landing pages -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+              <path d="M8 20h8"></path>
+              <path d="M12 16v4"></path>
+            </svg>
+          </div>
+          <p class="feature-text">
+            Landing pages y páginas de servicios
+          </p>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="info-col">
+          <div class="feature-icon">
+            <!-- Layout / wireframe -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+              <path d="M3 9h18"></path>
+              <path d="M8 9v11"></path>
+            </svg>
+          </div>
+          <p class="feature-text">
+            Diseño y maquetación en WordPress / Elementor
+          </p>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="info-col">
+          <div class="feature-icon">
+            <!-- Growth / improvement -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 19h16"></path>
+              <path d="M7 15l4-4 3 3 5-7"></path>
+              <path d="M18 8h1v1"></path>
+            </svg>
+          </div>
+          <p class="feature-text">
+            Mejora visual y estructural de páginas existentes
+          </p>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="info-col">
+          <div class="feature-icon">
+            <!-- Heart / UX -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 20s-6.8-4.35-8.7-8.08A5.38 5.38 0 0 1 8.1 4.9c1.54 0 2.9.75 3.9 2.08 1-1.33 2.36-2.08 3.9-2.08a5.38 5.38 0 0 1 4.8 7.02C18.8 15.65 12 20 12 20z"></path>
+            </svg>
+          </div>
+          <p class="feature-text">
+            Diseño orientado a claridad, jerarquía visual y experiencia de usuario
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+    <div class="container">
+        <div class="final-cta-card">
+
+        <span class="final-cta-eyebrow">TRABAJEMOS TU PROYECTO</span>
+
+        <h2 class="final-cta-title">
+            ¿Tienes una web que no comunica bien lo que ofreces?
+        </h2>
+
+        <p class="final-cta-text">
+            Te ayudo a transformar tu web en una página más clara, estratégica y profesional, capaz de comunicar con más claridad lo que ofreces, transmitir una presencia visual más sólida y coherente, y elevar la percepción de tu marca para generar más confianza en tus nuevos clientes o pacientes.
+        </p>
+
+        <div class="final-cta-actions">
+            <a href="https://wa.me/51920547973?text=Hola%20Sergio%2C%20quiero%20crear%20mi%20sitio%20web.%0A%0AMi%20nombre%20es%3A%0AMi%20negocio%20%2F%20proyecto%20es%3A%0A" rel="noopener" class="btn btn-primary" target="_blank">
+            Escríbeme por WhatsApp
+            </a>
+
+            <a href="" class="btn btn-outline">
+            Ver datos de contacto
+            </a>
+        </div>
+
+        </div>
+    </div>
+</section>
+
+  <!-- CONTACTO -->
+    <section class="section" id="contacto">
+    <div class="container">
+        <div class="info-block">
+        <div class="contact-grid">
+
+            <!-- Columna izquierda -->
+            <div class="contact-item contact-item--intro">
+            <h2 class="info-title">Contacto</h2>
+            <div class="info-line"></div>
+            <p class="info-text">
+                Si necesitas una landing page, una web institucional o mejorar una página existente, escríbeme y revisamos tu caso.
+            </p>
+            </div>
+
+            <!-- WhatsApp -->
+            <!-- <div class="contact-item">
+            <div class="contact-top">
+                <div class="contact-icon">
+                    <i class="bi bi-whatsapp"></i>
+                </div>
+
+                <div class="contact-copy">
+                <div class="contact-label">WhatsApp</div>
+                <div class="contact-value">Envía un mensaje</div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/51920547973" class="contact-link" target="_blank">
+                Escríbeme por WhatsApp →
+            </a>
+            </div> -->
+
+            <!-- Email -->
+            <div class="contact-item">
+            <div class="contact-top">
+                <div class="contact-icon">
+                    <i class="bi bi-envelope"></i>
+                </div>
+
+                <div class="contact-copy">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">mv.sergioantonio@gmail.com</div>
+                </div>
+            </div>
+
+            <a href="mailto:mv.sergioantonio@gmail.com" class="contact-link">
+                Enviar correo →
+            </a>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-item">
+            <div class="contact-top">
+                <div class="contact-icon">
+                    <i class="bi bi-instagram"></i>
+                </div>
+
+                <div class="contact-copy">
+                <div class="contact-label">Instagram</div>
+                <div class="contact-value">@sergiomaceda.wd</div>
+                </div>
+            </div>
+
+            <a href="https://www.instagram.com/sergiomaceda.wd/" class="contact-link" target="_blank">
+                Ver perfil →
+            </a>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    </section>
+
+        
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2026 Sergio Maceda. Todos los derechos reservados.</div>
+        <div>Diseñador Web · WordPress · Elementor</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
